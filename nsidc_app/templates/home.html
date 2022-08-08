@@ -357,9 +357,7 @@
     padding-bottom: 0px;
     background-color: steelblue;
     margin-top: -13px;
-}
-.cls li+li{
-    padding:50px;
+    height: auto;
 }
 </style>
 
@@ -633,7 +631,7 @@
                 <ul class="drop cls">
                     {% for about in data %}
                     <li style ="width:90px;"><a href = "datacentre/{{about.slug}}" style="text-decoration:none;color:white;">{{about.description}}</a></li>
-                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:-10px;margin-bottom:-10px;"></div>
+                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.5px;"></div>
                     {% endfor %}
                 </ul>
             </li>

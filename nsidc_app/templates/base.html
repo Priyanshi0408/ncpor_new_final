@@ -39,7 +39,7 @@
         .bar:hover .class2 {
             display: flex;
             margin-left: -500px;
-            width: 600px;
+            width: 800px;
             padding-top: 0px;
             padding-bottom: 0px;
             background-color: steelblue;
@@ -342,6 +342,23 @@
   from {opacity: .4}
   to {opacity: 1}
 }
+.dandi{
+    color: #eaf50e;
+}
+.rpp{
+    width:1.5px;
+    height:auto;
+    background-color:aquamarine;
+}
+.bar:hover .cls {
+    margin-left: 0px;
+    width: 100px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: steelblue;
+    margin-top: -13px;
+    height: auto;
+}
 
 
 </style>
@@ -395,10 +412,10 @@
             <div class="navbar" style="width:100%; height: 40%;margin-top: -10px;">
             <ul class="cl1">
             <li class="b bar" style="padding:0px;margin-left: 50%;">
-                <a href="/" style="text-decoration:none;color:white;font-size:18px;">Home&nbsp&nbsp&nbsp|</a>
+                <a href="/" style="text-decoration:none;color:white;font-size:18px;">Home&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
             </li>
             <li class="b bar" style="padding:0px;">
-                <a href="/" class="lf1" style="text-decoration:none;color:white;font-size:18px;">About&nbsp&nbsp&nbsp|</a>
+                <a href="/" class="lf1" style="text-decoration:none;color:white;font-size:18px;">About&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
                 {% comment %} <div class="dropdown4 about_dd" style="margin-left: -833px;">
                     <div class="about1 ss1 ">
                         <p><a href="#" style="text-decoration:none;color:white">About NSIDC</a></p>
@@ -477,11 +494,11 @@
                 </ul>
             </li>
             <li class="b bar" style="padding:0px;">
-                <a href="news" style="text-decoration:none;color:white;font-size:18px;">News&nbsp&nbsp&nbsp|</a>
+                <a href="news" style="text-decoration:none;color:white;font-size:18px;">News&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
             </li>
 
             <li class="b bar" style="padding:0px;padding-left:5px; margin-left: 0px;">
-                <a href="/" style="text-decoration:none;color:white;font-size:18px;margin-right:-10px;">Research&nbsp&nbsp&nbsp|</a>
+                <a href="/" style="text-decoration:none;color:white;font-size:18px;margin-right:-10px;">Research&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
                 {% comment %} <div class="dropdown2 dd_2" style="margin-left: -937px;">
                     <div class="l">
                         <figure class="sp">
@@ -544,42 +561,61 @@
                     {% for research in researchScientists %}
                 <li><a href="research_scientists_example/{{research.slug}}"
                         style="text-decoration:none;color:white">{{research.title}}</a></li>
+                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
 
                 {% endfor %}
                         </ul>
                     </li>
+                    <div class="rpp"></div>
                     <li class="bar2"><a href="research/research" style="text-decoration:none;color:white;">Research Grants</a>
                         <ul class="class3">
                             {% for researchGrant in researchGrants %}
                 <li><a href="research_grants_example/{{researchGrant.slug}}"
                         style="text-decoration:none;color:white">{{researchGrant.title}}</a></li>
+                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
                 {% endfor %}
                         </ul>
                     </li>
+                    <div class="rpp"></div>
                     <li class="bar2"><a href="research/publications" style="text-decoration:none;color:white;">Scientific
                             Publications</a>
                         <ul class="class3">
                             {% for scientificPublication in scientificPublications %}
                 <li><a href="research_publications_example/{{scientificPublication.slug}}"
                         style="text-decoration:none;color:white">{{scientificPublication.title}}</a></li>
+                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
                 {% endfor %}
                         </ul>
                     </li>
+                    <div class="rpp"></div>
                     <li class="bar2"><a href="research/information" style="text-decoration:none;color:white;">Information
                             Research</a>
                         <ul class="class3">
                             {% for informationResearch in informationResearchs %}
                 <li><a href="research_information_example/{{informationResearch.slug}}"
                         style="text-decoration:none;color:white">{{informationResearch.title}}</a></li>
+                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
                 {% endfor %}
                         </ul>
                     </li>
+                    <div class="rpp"></div>
                     <li class="bar2"><a href="research/scientific" style="text-decoration:none;color:white;">NCPOR Scientific
                             Expeditions</a>
                         <ul class="class3">
                             {% for scientificExpedition in scientificExpeditions %}
                 <li><a href="scientific_expeditions_example/{{scientificExpedition.slug}}"
                         style="text-decoration:none;color:white">{{scientificExpedition.title}}</a></li>
+                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
+                {% endfor %}
+                        </ul>
+                    </li>
+                    <div class="rpp"></div>
+                    <li class="bar2"><a href="research/scientific" style="text-decoration:none;color:white;">Exploration for Mineral Resources</a>
+                        <ul class="class3">
+                            {% for scientificExpedition in mre %}
+                <li><a href="scientific_expeditions_example/{{scientificExpedition.slug}}"
+                        style="text-decoration:none;color:white">{{scientificExpedition.title}}</a></li>
+                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
                 {% endfor %}
                         </ul>
                     </li>
@@ -587,14 +623,14 @@
 
             </li>
             <li class="b bar" style="padding:0px;margin-left:20px;">
-                <a href="careers" style="text-decoration:none;color:white;font-size:18px;margin-right:-5px;">Careers&nbsp&nbsp&nbsp|</a>
+                <a href="careers" style="text-decoration:none;color:white;font-size:18px;margin-right:-5px;">Careers&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
             </li>
             <li class="b bar" style="padding:0px;margin-left:10px;">
-                <a href="tender/" style="text-decoration:none;color:white;font-size:18px;margin-right:-25px;">Tender&nbsp&nbsp&nbsp|</a>
+                <a href="tender/" style="text-decoration:none;color:white;font-size:18px;margin-right:-25px;">Tender&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
             </li>
             
             <li class="b bar" style="padding:0px;margin-left:25px;">
-                <a href="webMail" style="text-decoration:none;color:white;font-size:18px;padding-left:10px;">Webmail&nbsp&nbsp&nbsp|</a>
+                <a href="webMail" style="text-decoration:none;color:white;font-size:18px;padding-left:10px;">Webmail&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
             </li>
             <li class="b bar" style="padding:0px;margin-left:0px;">
                 <a href="dataCenter" style="text-decoration:none;color:white;font-size:18px;padding-left:10px;">DataCenter</a>

@@ -35,7 +35,7 @@
         .bar:hover .class2 {
             display: flex;
             margin-left: -500px;
-            width: 700px;
+            width: 800px;
             padding-top: 0px;
             padding-bottom: 0px;
             background-color: steelblue;
@@ -134,6 +134,23 @@
 .class:hover{
     height: 40px;
 }
+.dandi{
+    color: #eaf50e;
+}
+.rpp{
+    width:1.5px;
+    height:auto;
+    background-color:aquamarine;
+}
+.bar:hover .cls {
+    margin-left: 0px;
+    width: 100px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: steelblue;
+    margin-top: -13px;
+    height: auto;
+}
         
     </style>
 
@@ -154,10 +171,10 @@
                 <ul class="cl1">
                     <!-- <li><a href="/"><img class="ima1" src="/static/images/home3.png" alt=""></a></li> -->
                     <li class="b bar" style="padding:0px;margin-left: 90%;">
-                        <a href="/" style="text-decoration:none;color:white;font-size:18px;">Home&nbsp&nbsp&nbsp|</a>
+                        <a href="/" style="text-decoration:none;color:white;font-size:18px;">Home&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
                     </li>
                 <li class="b bar" style="padding:0px;">
-                    <a href="" style="text-decoration:none;color:white;font-size:18px;margin-top:5px;height:20px; margin-right:10px;">About&nbsp&nbsp&nbsp|</a>
+                    <a href="" style="text-decoration:none;color:white;font-size:18px;margin-top:5px;height:20px; margin-right:10px;">About&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
 
                     <ul class="drop class1">
                         {% comment %} <li><a href="about/jobs" style="text-decoration:none;color:white;">Jobs</a></li>
@@ -179,11 +196,11 @@
 
                 </li>
                 {% comment %} <li class="b bar" style="padding:0px;">
-                    <a href="/news" style="text-decoration:none;color:white;font-size:18px;">News&nbsp&nbsp&nbsp|</a>
+                    <a href="/news" style="text-decoration:none;color:white;font-size:18px;">News&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
                 </li> {% endcomment %}
 
                 <li class="b bar" style="padding:0px;padding-left:5px;">
-                    <a href="" style="text-decoration:none;color:white;font-size:18px;">Research&nbsp&nbsp&nbsp|</a>
+                    <a href="" style="text-decoration:none;color:white;font-size:18px;">Research&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
 
                     <ul class="drop class2">
                         <li class="bar2"><a href="/research/scientists"
@@ -193,63 +210,88 @@
                     <li><a href="/research_example/{{research.slug}}"
                             style="text-decoration:none;color:white">{{research.title}}</a></li>
                     {% endfor %} -->
-                                {% for research in rs %}
+                                {% for research in polsc %}
                                 <li><a href="/research_scientists_example/{{research.slug}}"
                                         style="text-decoration:none;color:white">{{research.title}}</a></li>
+                                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
 
                                 {% endfor %}
                             </ul>
                         </li>
+                        <div class="rpp"></div>
                         <li class="bar2"><a href="/research/research" style="text-decoration:none;color:white">Atmosphere, Ice and Climate</a>
                             <ul class="class3">
-                                {% for researchGrant in rsg %}
+                                {% for researchGrant in am %}
                                 <li><a href="/research_grants_example/{{researchGrant.slug}}"
                                         style="text-decoration:none;color:white">{{researchGrant.title}}</a></li>
+                                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
                                 {% endfor %}
                             </ul>
                         </li>
+                        <div class="rpp"></div>
                         <li class="bar2"><a href="/research/publications"
                                 style="text-decoration:none;color:white">Geosciences</a>
                             <ul class="class3">
-                                {% for scientificPublication in sfpb %}
+                                {% for scientificPublication in gsc %}
                                 <li><a href="/research_publications_example/{{scientificPublication.slug}}"
                                         style="text-decoration:none;color:white">{{scientificPublication.title}}</a>
                                 </li>
+                                <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
                                 {% endfor %}
                             </ul>
                         </li>
+                        <div class="rpp"></div>
                         <li class="bar2"><a href="/research/information"
                                 style="text-decoration:none;color:white">Polar Oceans / Oceanography</a>
                             <ul class="class3">
-                                {% for informationResearch in ifrsc %}
+                                {% for informationResearch in poloc %}
                                 <li><a href="/research_information_example/{{informationResearch.slug}}"
                                         style="text-decoration:none;color:white">{{informationResearch.title}}</a></li>
+                                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
                                 {% endfor %}
                             </ul>
                         </li>
+                        <div class="rpp"></div>
                         <li class="bar2"><a href="/research/scientific" style="text-decoration:none;color:white">Polar Environments, Atmosphere</a>
                             <ul class="class3">
-                                {% for scientificExpedition in expd %}
+                                {% for scientificExpedition in polen %}
                                 <li><a href="/scientific_expeditions_example/{{scientificExpedition.slug}}"
                                         style="text-decoration:none;color:white">{{scientificExpedition.title}}</a></li>
+                                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
                                 {% endfor %}
                             </ul>
                         </li>
+                        <div class="rpp"></div>
+                        <li class="bar2"><a href="research/scientific" style="text-decoration:none;color:white;">Exploration for Mineral Resources</a>
+                        <ul class="class3">
+                            {% for scientificExpedition in mre %}
+                <li><a href="scientific_expeditions_example/{{scientificExpedition.slug}}"
+                        style="text-decoration:none;color:white">{{scientificExpedition.title}}</a></li>
+                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
+                {% endfor %}
+                        </ul>
+                    </li>
                     </ul>
 
                 </li>
                 <li class="b bar" style="padding:0px;margin-left:10px;">
-                    <a href="/careers" style="text-decoration:none;color:white;font-size:18px;">Careers&nbsp&nbsp&nbsp|</a>
+                    <a href="/careers" style="text-decoration:none;color:white;font-size:18px;">Careers&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
                 </li>
                 <li class="b bar" style="padding:0px;margin-left:10px;">
-                    <a href="/tender" style="text-decoration:none;color:white;font-size:18px;">Tender&nbsp&nbsp&nbsp|</a>
+                    <a href="/tender" style="text-decoration:none;color:white;font-size:18px;">Tender&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
                 </li>
                 
                 <li class="b bar" style="padding:0px;margin-left:10px;">
-                    <a href="https://email.gov.in/"target="_blank" style="text-decoration:none;color:white;font-size:18px;margin-right:-20px;">Webmail&nbsp&nbsp&nbsp|</a>
+                    <a href="https://email.gov.in/"target="_blank" style="text-decoration:none;color:white;font-size:18px;margin-right:-20px;">Webmail&nbsp&nbsp&nbsp<span class = "dandi">|</span></a>
                 </li>
                 <li class="b bar" style="padding:0px;margin-left:25px;">
                     <a href="/dataCenter" style="text-decoration:none;color:white;font-size:18px;">DataCenter</a>
+                    <ul class="drop cls">
+                        {% for about in data %}
+                        <li style ="width:90px;"><a href = "datacentre/{{about.slug}}" style="text-decoration:none;color:white;">{{about.description}}</a></li>
+                            <div class="bor" style="width: 100%; background-color:aquamarine; height:.5px;"></div>
+                        {% endfor %}
+                    </ul>
                 </li>
                 </ul>
             </div>
