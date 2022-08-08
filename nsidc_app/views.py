@@ -1015,6 +1015,7 @@ def data_centre(request,slug):
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
     data = dataclass.objects.all()
+    d = dataclass.objects.filter(slug=slug).first()
     polarenv = polarenvironments.objects.all()
     polaroc = polaroceans.objects.all()
     polarsc = polarscience.objects.all()
@@ -1032,5 +1033,6 @@ def data_centre(request,slug):
         'se': scientificExpeditions,
         'data': data,
         'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
+        'd':d
     }
     return render(request, 'data_class.html',context)
