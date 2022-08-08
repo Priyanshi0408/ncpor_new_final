@@ -350,6 +350,23 @@
     height:auto;
     background-color:aquamarine;
 }
+.dandi{
+    color: #eaf50e;
+}
+.rpp{
+    width:1.5px;
+    height:auto;
+    background-color:aquamarine;
+}
+.bar:hover .cls {
+    margin-left: 0px;
+    width: 100px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: steelblue;
+    margin-top: -13px;
+    height: auto;
+}
 </style>
 
 </head>
@@ -475,7 +492,7 @@
                     <li><a href="about/greendata" style="text-decoration:none;color:white">NSIDC's Green Data
                             Center</a></li> {% endcomment %}
 
-                    {% for about in abouts %}
+                    {% for about in ab %}
 
                     <li><a href = "/about_example/{{about.slug}}" style="text-decoration:none;color:white">{{about.title}}</a></li>
                         <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:-10px;margin-bottom:-10px;"></div>
