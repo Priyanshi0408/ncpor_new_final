@@ -31,6 +31,7 @@
             margin-top: -13px;
             z-index: 3;
         }
+
         .bar:hover .class2 {
             display: flex;
             margin-left: -500px;
@@ -81,7 +82,7 @@
             width: auto;
             padding-top: 0px;
             padding-bottom: 0px;
-            background-color: #032549;
+            background-color :#032549;
         }
         .im1 {
             margin-top: 5px;
@@ -166,7 +167,7 @@
                         style="text-decoration:none;color:white; font-size: 40px;">National Centre for Polar and Ocean Research </a></li>
                 <!-- </ul> -->
             </div>
-            <div class="navbar" style="height: 40%;margin-top: -20px;margin-bottom: 1%;">
+            <div class="navbar" style="height: 40%;margin-top: -10px;">
                 <ul class="cl1">
                     <!-- <li><a href="/"><img class="ima1" src="/static/images/home3.png" alt=""></a></li> -->
                     <li class="b bar" style="padding:0px;margin-left: 90%;">
@@ -262,14 +263,14 @@
                         </li>
                         <div class="rpp"></div>
                         <li class="bar2"><a href="research/scientific" style="text-decoration:none;color:white;">Exploration for Mineral Resources</a>
-                            <ul class="class3">
-                                {% for scientificExpedition in mre %}
-                    <li><a href="scientific_expeditions_example/{{scientificExpedition.slug}}"
-                            style="text-decoration:none;color:white">{{scientificExpedition.title}}</a></li>
-                            <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
-                    {% endfor %}
-                            </ul>
-                        </li>
+                        <ul class="class3">
+                            {% for scientificExpedition in mre %}
+                <li><a href="scientific_expeditions_example/{{scientificExpedition.slug}}"
+                        style="text-decoration:none;color:white">{{scientificExpedition.title}}</a></li>
+                        <div class="bor" style="width: 100%; background-color:aquamarine; height:.75px;margin-top:0px;"></div>
+                {% endfor %}
+                        </ul>
+                    </li>
                     </ul>
 
                 </li>
@@ -295,9 +296,9 @@
                 </ul>
             </div>
             <div class="pg">
+
                 <div>
-                    <!-- {{research.content|safe}} -->
-                    {{research.content|safe}}
+                    {{d.content|safe}}
                 </div>
             </div>
         </div>

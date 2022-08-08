@@ -13,7 +13,7 @@ from nsidc_app.models import enquiryclass,corigendumclass
 from nsidc_app.models import careerclass
 from nsidc_app.models import scientificPublication, antarctic,arctic,southern_ocean,himalaya
 from nsidc_app.models import scientificExpedition
-from nsidc_app.models import polarenvironments,polaroceans,polarscience,mineralresources,geosciences,atmosphere,newsclass,eventclass
+from nsidc_app.models import polarenvironments,polaroceans,polarscience,mineralresources,geosciences,atmosphere,newsclass,eventclass,dataclass
 
 # Create your views here.
 
@@ -39,8 +39,9 @@ def home(request):
     c = new.exclude(closingdate__lte=datetime.today())
     eve = eventclass.objects.all()
     d = eve.exclude(closingdate__lte=datetime.today())
+    data = dataclass.objects.all()
     context = {'abouts': abouts, 'informationResearchs': informationResearchs, 'researchScientists': researchScientists, 'researchGrants': researchGrants, 'scientificPublications': scientificPublications,
-               'scientificExpeditions': scientificExpeditions, 'redsc': research_example_down_scientist, 'redrg': research_example_down_resgr, "down_publ": research_example_down_sps, 'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,'him':research_example_down,'nw':c,'event':d}
+               'scientificExpeditions': scientificExpeditions, 'redsc': research_example_down_scientist, 'redrg': research_example_down_resgr, "down_publ": research_example_down_sps, 'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,'him':research_example_down,'nw':c,'event':d,'data':data}
     return render(request, 'home.html', context)
 # def about_jobs(request):
 #     return HttpResponse("this is home page")
@@ -70,13 +71,22 @@ def about_example(request, slug):
     scientificPublications = scientificPublication.objects.all()
     informationResearchs = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {'about': About,
                'ab': abouts,
                'rs': researchScientists,
                'rsg': researchGrants,
                'sfpb': scientificPublications,
                'ifrsc': informationResearchs,
-               'expd': scientificExpeditions
+               'expd': scientificExpeditions,
+               'data': data,
+               'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
                }
     return render(request, 'about_example.html', context)
 
@@ -89,13 +99,22 @@ def research_scientists(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'research/r_scientists.html', context)
 
@@ -107,13 +126,22 @@ def research_grants(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'research/research_grants.html', context)
 
@@ -125,13 +153,22 @@ def research_publications(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'research/scientific_publications.html', context)
 
@@ -143,13 +180,22 @@ def research_information(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'research/InformationResearch.html', context)
 
@@ -161,13 +207,22 @@ def scientific_expeditions(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'research/ScientificExpeditions.html', context)
 
@@ -184,13 +239,22 @@ def research_scientists_example(request, slug):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {'research': Researchs,
                'ab': abouts,
                'rs': researchScientists,
                'rg': researchGrants,
                'rp': researchPublications,
                'ri': researchInformation,
-               'se': scientificExpeditions
+               'se': scientificExpeditions,
+               'data': data,
+               'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
                }
     return render(request, 'research/research_scientist_example.html', context)
 
@@ -203,13 +267,22 @@ def research_grants_example(request, slug):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {'research': Researchs,
                'ab': abouts,
                'rs': researchScientists,
                'rg': researchGrants,
                'rp': researchPublications,
                'ri': researchInformation,
-               'se': scientificExpeditions
+               'se': scientificExpeditions,
+               'data': data,
+               'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
                }
     return render(request, 'research/research_grant_example.html', context)
 
@@ -222,13 +295,22 @@ def research_publications_example(request, slug):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {'research': Researchs,
                'ab': abouts,
                'rs': researchScientists,
                'rg': researchGrants,
                'rp': researchPublications,
                'ri': researchInformation,
-               'se': scientificExpeditions
+               'se': scientificExpeditions,
+               'data': data,
+               'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
                }
     return render(request, 'research/research_publications_example.html', context)
 
@@ -241,13 +323,22 @@ def research_information_example(request, slug):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {'research': Researchs,
                'ab': abouts,
                'rs': researchScientists,
                'rg': researchGrants,
                'rp': researchPublications,
                'ri': researchInformation,
-               'se': scientificExpeditions
+               'se': scientificExpeditions,
+               'data': data,
+               'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
                }
     return render(request, 'research/research_IR_example.html', context)
 
@@ -260,13 +351,22 @@ def scientific_expeditions_example(request, slug):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {'research': Researchs,
                'ab': abouts,
                'rs': researchScientists,
                'rg': researchGrants,
                'rp': researchPublications,
                'ri': researchInformation,
-               'se': scientificExpeditions
+               'se': scientificExpeditions,
+               'data': data,
+               'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
                }
     return render(request, 'research/research_scientific_example.html', context)
 
@@ -309,13 +409,22 @@ def tender(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'tender.html', context)
     # return HttpResponse("hello")
@@ -330,6 +439,13 @@ def tenderTable(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'co':cd,
         'ab': abouts,
@@ -337,7 +453,9 @@ def tenderTable(request):
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, "tender/tenderTable.html", context)
 
@@ -350,6 +468,13 @@ def CorrigendumTable(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'co':cd,
         'ab': abouts,
@@ -357,7 +482,9 @@ def CorrigendumTable(request):
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, "tender/CorrigendumTable.html", context)
     # return HttpResponse("fnfjn")
@@ -370,6 +497,13 @@ def ProcurementTable(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'co':cd,
         'ab': abouts,
@@ -377,7 +511,9 @@ def ProcurementTable(request):
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, "tender/ProcurementTable.html", context)
 def PanelmentTable(request):
@@ -389,6 +525,13 @@ def PanelmentTable(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'co':cd,
         'ab': abouts,
@@ -396,7 +539,9 @@ def PanelmentTable(request):
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, "tender/PanelmentTable.html", context)
 def EnquiryTable(request):
@@ -408,6 +553,13 @@ def EnquiryTable(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'co':cd,
         'ab': abouts,
@@ -415,7 +567,9 @@ def EnquiryTable(request):
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, "tender/EnquiryTable.html", context)
 def GeMTable(request):
@@ -427,6 +581,13 @@ def GeMTable(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'co':cd,
         'ab': abouts,
@@ -434,7 +595,9 @@ def GeMTable(request):
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, "tender/GeMTable.html", context)
 
@@ -451,6 +614,13 @@ def tenderArchive(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'co1':c1,
         'co2':c2,
@@ -463,7 +633,9 @@ def tenderArchive(request):
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, "tender/tenderArchive.html", context)
 
@@ -478,6 +650,13 @@ def careers(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'co':cd,
         'ab': abouts,
@@ -485,7 +664,9 @@ def careers(request):
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, "career.html", context)
 
@@ -497,6 +678,13 @@ def careerArchive(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'co':c,
         'ab': abouts,
@@ -504,7 +692,9 @@ def careerArchive(request):
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, "careerArchive.html", context)
 
@@ -516,13 +706,22 @@ def webMail(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, "webMail.html", context)
 def news(request):
@@ -532,13 +731,22 @@ def news(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, "news.html", context)
 
@@ -553,6 +761,13 @@ def polar_science(request,slug):
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
     polar_res = polarscience.objects.filter(slug=slug).first()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
@@ -561,6 +776,8 @@ def polar_science(request,slug):
         'ri': researchInformation,
         'se': scientificExpeditions,
         'po': polar_res,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'our_research/polarscience.html', context)
 
@@ -572,6 +789,13 @@ def polar_oceans(request,slug):
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
     polar_res = polaroceans.objects.filter(slug=slug).first()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
@@ -580,6 +804,8 @@ def polar_oceans(request,slug):
         'ri': researchInformation,
         'se': scientificExpeditions,
         'po': polar_res,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'our_research/polaroceans.html', context)
 
@@ -591,6 +817,13 @@ def polar_env(request,slug):
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
     polar_res = polarenvironments.objects.filter(slug=slug).first()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
@@ -599,6 +832,8 @@ def polar_env(request,slug):
         'ri': researchInformation,
         'se': scientificExpeditions,
         'po': polar_res,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'our_research/polarenv.html', context)
 
@@ -610,6 +845,13 @@ def mineral_resources(request,slug):
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
     polar_res = mineralresources.objects.filter(slug=slug).first()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
@@ -618,6 +860,8 @@ def mineral_resources(request,slug):
         'ri': researchInformation,
         'se': scientificExpeditions,
         'po': polar_res,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'our_research/mineralresources.html', context)
 
@@ -629,6 +873,13 @@ def atmos(request,slug):
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
     polar_res = atmosphere.objects.filter(slug=slug).first()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
@@ -637,6 +888,8 @@ def atmos(request,slug):
         'ri': researchInformation,
         'se': scientificExpeditions,
         'po': polar_res,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'our_research/atmos.html', context)
 
@@ -648,6 +901,13 @@ def geoscience(request,slug):
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
     polar_res = geosciences.objects.filter(slug=slug).first()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
@@ -656,6 +916,8 @@ def geoscience(request,slug):
         'ri': researchInformation,
         'se': scientificExpeditions,
         'po': polar_res,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'our_research/geoscience.html', context)
 
@@ -666,13 +928,22 @@ def dataCenter(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
     context = {
         'ab': abouts,
         'rs': researchScientists,
         'rg': researchGrants,
         'rp': researchPublications,
         'ri': researchInformation,
-        'se': scientificExpeditions
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'DataCenter.html', context)
 
@@ -685,6 +956,13 @@ def news_archive(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
 
     c = newsclass.objects.filter(closingdate__lte=datetime.today())
     context = {
@@ -695,6 +973,8 @@ def news_archive(request):
         'rp': researchPublications,
         'ri': researchInformation,
         'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'news_archive.html',context)
 
@@ -705,6 +985,13 @@ def event_archive(request):
     researchPublications = scientificPublication.objects.all()
     researchInformation = informationResearch.objects.all()
     scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
 
     c = eventclass.objects.filter(closingdate__lte=datetime.today())
     context = {
@@ -715,5 +1002,37 @@ def event_archive(request):
         'rp': researchPublications,
         'ri': researchInformation,
         'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
     }
     return render(request, 'events_archive.html',context)
+    
+def data_centre(request,slug):
+    abouts = about.objects.all()
+    researchScientists = researchScientist.objects.all()
+    researchGrants = researchGrant.objects.all()
+    researchPublications = scientificPublication.objects.all()
+    researchInformation = informationResearch.objects.all()
+    scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.all()
+    d = dataclass.objects.filter(slug=slug).first()
+    polarenv = polarenvironments.objects.all()
+    polaroc = polaroceans.objects.all()
+    polarsc = polarscience.objects.all()
+    minre = mineralresources.objects.all()
+    geosc = geosciences.objects.all()
+    atm = atmosphere.objects.all()
+    c = eventclass.objects.filter(closingdate__lte=datetime.today())
+    context = {
+        'co' : c,
+        'ab': abouts,
+        'rs': researchScientists,
+        'rg': researchGrants,
+        'rp': researchPublications,
+        'ri': researchInformation,
+        'se': scientificExpeditions,
+        'data': data,
+        'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,
+        'd':d
+    }
+    return render(request, 'data_class.html',context)
