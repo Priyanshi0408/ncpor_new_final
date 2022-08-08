@@ -13,7 +13,7 @@ from nsidc_app.models import enquiryclass,corigendumclass
 from nsidc_app.models import careerclass
 from nsidc_app.models import scientificPublication, antarctic,arctic,southern_ocean,himalaya
 from nsidc_app.models import scientificExpedition
-from nsidc_app.models import polarenvironments,polaroceans,polarscience,mineralresources,geosciences,atmosphere,newsclass,eventclass
+from nsidc_app.models import polarenvironments,polaroceans,polarscience,mineralresources,geosciences,atmosphere,newsclass,eventclass,dataclass
 
 # Create your views here.
 
@@ -39,8 +39,9 @@ def home(request):
     c = new.exclude(closingdate__lte=datetime.today())
     eve = eventclass.objects.all()
     d = eve.exclude(closingdate__lte=datetime.today())
+    data = dataclass.objects.all()
     context = {'abouts': abouts, 'informationResearchs': informationResearchs, 'researchScientists': researchScientists, 'researchGrants': researchGrants, 'scientificPublications': scientificPublications,
-               'scientificExpeditions': scientificExpeditions, 'redsc': research_example_down_scientist, 'redrg': research_example_down_resgr, "down_publ": research_example_down_sps, 'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,'him':research_example_down,'nw':c,'event':d}
+               'scientificExpeditions': scientificExpeditions, 'redsc': research_example_down_scientist, 'redrg': research_example_down_resgr, "down_publ": research_example_down_sps, 'polen':polarenv, 'poloc':polaroc, 'polsc':polarsc, 'mre':minre, 'gsc':geosc, 'am':atm,'him':research_example_down,'nw':c,'event':d,'data':data}
     return render(request, 'home.html', context)
 # def about_jobs(request):
 #     return HttpResponse("this is home page")
@@ -717,3 +718,24 @@ def event_archive(request):
         'se': scientificExpeditions,
     }
     return render(request, 'events_archive.html',context)
+    
+def data_centre(request,slug):
+    abouts = about.objects.all()
+    researchScientists = researchScientist.objects.all()
+    researchGrants = researchGrant.objects.all()
+    researchPublications = scientificPublication.objects.all()
+    researchInformation = informationResearch.objects.all()
+    scientificExpeditions = scientificExpedition.objects.all()
+    data = dataclass.objects.filter(slug=slug).first()
+    c = eventclass.objects.filter(closingdate__lte=datetime.today())
+    context = {
+        'co' : c,
+        'ab': abouts,
+        'rs': researchScientists,
+        'rg': researchGrants,
+        'rp': researchPublications,
+        'ri': researchInformation,
+        'se': scientificExpeditions,
+        'data': data,
+    }
+    return render(request, 'data_class.html',context)

@@ -11,7 +11,7 @@ from nsidc_app.models import careerclass
 from nsidc_app.models import scientificPublication
 from nsidc_app.models import scientificExpedition
 from nsidc_app.models import polarenvironments,polaroceans,polarscience,mineralresources,geosciences,atmosphere
-from nsidc_app.models import  antarctic,arctic,southern_ocean,himalaya,newsclass,eventclass
+from nsidc_app.models import  antarctic,arctic,southern_ocean,himalaya,newsclass,eventclass,dataclass
 # Register your models here.
 
 class BlogAdmin(admin.ModelAdmin):
@@ -51,5 +51,6 @@ admin.site.register(atmosphere,BlogAdmin)
 admin.site.register(mineralresources,BlogAdmin)
 admin.site.register(newsclass,BlogAdmin)
 admin.site.register(eventclass,BlogAdmin)
+admin.site.register(dataclass,BlogAdmin)
 
 # admin.site.register(research_drop,BlogAdmin)(drop-dowm-->dropdowm through cms / made by priyanshi)
