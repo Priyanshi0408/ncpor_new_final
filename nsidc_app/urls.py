@@ -57,5 +57,7 @@ urlpatterns = [
     
     path("dataCenter",views.dataCenter,name= 'dataCenter'),
     path("newsarchive",views.news_archive,name='news'),
-    path("eventsarchive",views.event_archive,name='news')
+    path("eventsarchive",views.event_archive,name='news'),
+
+    path("datacentre/<str:slug>",views.data_centre,name= 'datacentre'),
 ]

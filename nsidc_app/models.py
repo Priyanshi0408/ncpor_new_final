@@ -244,3 +244,10 @@ class eventclass(models.Model):
 
     def __str__(self):
         return self.sno
+
+class dataclass(models.Model):
+    description=models.CharField(max_length=300)
+    content = models.TextField()
+    slug = models.CharField(max_length=300)
+    def __str__(self):
+        return self.description
